@@ -23,6 +23,16 @@ describe 'Dog' do
       lassie = get_variable_from_file("lib/dog.rb", "lassie")
       expect(lassie).to be_a(Dog)
     end
+
+    it 'local variables  are different instances of Dog' do
+      snoopy = get_variable_from_file("lib/dog.rb", "snoopy")
+      lassie = get_variable_from_file("lib/dog.rb", "lassie")
+      fido = get_variable_from_file("lib/dog.rb", "fido")
+
+      expect(snoopy).not_to eq(lassie)
+      expect(lassie).not_to eq(fido)
+
+    end
   end
 end
 
@@ -43,6 +53,12 @@ describe 'Person' do
     it 'defines a local variable alan_kay as an instance of a Person' do
       alan_kay = get_variable_from_file("lib/person.rb", "alan_kay")
       expect(alan_kay).to be_a(Person)
+    end
+
+    it 'local variables  are different instances of Person' do
+      adele_goldberg = get_variable_from_file("lib/person.rb", "adele_goldberg")
+      alan_kay = get_variable_from_file("lib/person.rb", "alan_kay")
+      expect(adele_goldberg).not_to eq(alan_kay)
     end
   end
 end
